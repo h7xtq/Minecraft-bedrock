@@ -1,11 +1,6 @@
-import { ActionFormData, ActionFormResponse, FormResponse, MessageFormData, MessageFormResponse, ModalFormData, ModalFormResponse } from "@minecraft/server-ui"
-import { world, Player, ItemStack, system, Entity, ItemLockMode, EquipmentSlot, Block, EntityInventoryComponent } from '@minecraft/server'
+import { world } from '@minecraft/server'
 
-function getAllStrings(list, prefix) {
-  return list
-    .filter(_ => _.startsWith(prefix))
-    .map(_ => _.substring(prefix.length));
-}
+function getAllStrings(list, prefix) {return list.filter(_ => _.startsWith(prefix)).map(_ => _.substring(prefix.length));}
 
 world.beforeEvents.chatSend.subscribe((eventData) => {
   const { sender: player, message: msg } = eventData
